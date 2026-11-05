@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>葉舒華應援周邊預購（作業示範）</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+:root{--bg:#f6f4fb;--card:#ffffff;--ink:#241f3d;--mute:#6b6585;--line:#ddd8ec;--acc:#6a3df0;--acc-ink:#ffffff;--ok:#12805f;--warn:#b4531a;--err:#c0242f;--soft:#ece7ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15122a;--card:#1f1b3a;--ink:#efecfb;--mute:#a49fc0;--line:#363058;--acc:#a58bff;--acc-ink:#17122e;--ok:#4fd1a5;--warn:#f0a266;--err:#ff8a92;--soft:#2c2650}}
+:root[data-theme="dark"]{--bg:#15122a;--card:#1f1b3a;--ink:#efecfb;--mute:#a49fc0;--line:#363058;--acc:#a58bff;--acc-ink:#17122e;--ok:#4fd1a5;--warn:#f0a266;--err:#ff8a92;--soft:#2c2650}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.65 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 60px}
+header h1{font-size:clamp(28px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900;letter-spacing:.01em}
+header p{margin:0;color:var(--mute);max-width:60ch}
+.demo{display:inline-block;margin-top:14px;padding:6px 12px;border:1px dashed var(--warn);color:var(--warn);border-radius:8px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 340px;gap:22px;margin-top:26px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+fieldset{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:18px 18px 12px;margin:0 0 18px}
+legend{font-weight:700;padding:0 8px;font-size:17px}
+.item{display:grid;grid-template-columns:1fr auto;gap:8px 14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item b{font-size:16px}.item small{color:var(--mute);display:block}
+.ctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+label{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
+input[type=text],input[type=email],input[type=tel],select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit}
+.item select{width:auto}
+.step{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg)}
+.step button{width:40px;height:40px;border:0;background:var(--soft);color:var(--ink);font:700 20px/1 sans-serif;cursor:pointer}
+.step button:disabled{opacity:.35;cursor:not-allowed}
+.step output{min-width:38px;text-align:center;font-weight:700}
+input:focus-visible,select:focus-visible,button:focus-visible,.opt:focus-within{outline:3px solid var(--acc);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media(max-width:560px){.row{grid-template-columns:1fr}}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;gap:8px;align-items:center;cursor:pointer;margin:0;color:var(--ink);font-size:15px}
+.opt:has(input:checked){border-color:var(--acc);background:var(--soft)}
+.note{font-size:13px;color:var(--mute);margin:8px 0}
+.note.warn{color:var(--warn)}
+.hide{display:none}
+.err{color:var(--err);font-size:14px;margin:4px 0 0;min-height:1em}
+.bad{border-color:var(--err)!important;box-shadow:0 0 0 3px color-mix(in srgb,var(--err) 25%,transparent)}
+#items.bad{border:2px solid var(--err)!important;border-radius:10px;padding:0 10px}
+.ferr{color:var(--err);font-size:14px;font-weight:500;margin:6px 0 0}
+.receipt{position:sticky;top:calc(env(safe-area-inset-top,0px) + 14px);background:var(--card);border:1px solid var(--line);border-radius:6px 6px 0 0;padding:20px 18px 26px;
+background-image:radial-gradient(circle at 8px 100%,transparent 6px,var(--card) 6.5px);background-size:16px 14px;background-repeat:repeat-x;background-position:0 100%}
+.receipt h2{margin:0 0 4px;font-size:18px}
+.receipt .ln{display:flex;justify-content:space-between;gap:10px;padding:5px 0;font-size:15px}
+.receipt .ln span:first-child{color:var(--mute)}
+.receipt .tot{border-top:2px solid var(--ink);margin-top:8px;padding-top:10px;font-weight:900;font-size:20px;color:var(--ink)}
+.receipt .tot span:first-child{color:var(--ink)}
+button.go{width:100%;margin-top:14px;padding:13px;border:0;border-radius:10px;background:var(--acc);color:var(--acc-ink);font:700 17px/1 "Noto Sans TC",sans-serif;cursor:pointer}
+button.sec{padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;font:inherit;cursor:pointer}
+#result{margin-top:22px}
+.done{border:2px solid var(--ok);border-radius:14px;padding:18px;background:var(--card)}
+.done h2{margin:0 0 6px;color:var(--ok)}
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;background:var(--soft);font-size:14px;font-weight:700}
+pre{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:13px;line-height:1.55;max-width:100%}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>葉舒華應援周邊預購</h1>
+<p>選好版本與數量，填寫購買資料，系統會算出訂單並整理出「收集到的金流資料」。</p>
+<span class="demo">課堂作業示範：粉絲自製頁面，商品為虛構，不會真的扣款</span>
+</header>
+
+<div class="grid">
+<form id="f" novalidate>
+<fieldset><legend>1. 選擇商品</legend>
+<div id="items"></div>
+<p class="note">預購截止：2026/12/15　預計出貨：2027/02　每人有限購數量</p>
+<p class="err" id="e-items"></p>
+</fieldset>
+
+<fieldset><legend>2. 購買人資料</legend>
+<div class="row">
+<div><label for="name">姓名</label><input type="text" id="name" autocomplete="name"></div>
+<div><label for="nick">粉絲暱稱（選填）</label><input type="text" id="nick"></div>
+<div><label for="email">Email</label><input type="email" id="email" autocomplete="email"></div>
+<div><label for="phone">手機</label><input type="tel" id="phone" placeholder="09xxxxxxxx" autocomplete="tel"></div>
+</div>
+<p class="err" id="e-buyer"></p>
+<p class="note">只收訂單必要的資料，粉絲族群有不少未成年人，所以暱稱為選填。</p>
+</fieldset>
+
+<fieldset><legend>3. 取貨方式</legend>
+<div class="opts" id="ship">
+<label class="opt"><input type="radio" name="ship" value="cvs" checked> 超商取貨（運費 NT$60）</label>
+<label class="opt"><input type="radio" name="ship" value="home"> 宅配（運費 NT$100）</label>
+</div>
+<div id="addrbox" class="hide"><label for="addr">收件地址</label><input type="text" id="addr" autocomplete="street-address"></div>
+<p class="err" id="e-ship"></p>
+</fieldset>
+
+<fieldset><legend>4. 付款方式（模擬）</legend>
+<div class="opts" id="pay">
+<label class="opt"><input type="radio" name="pay" value="card" checked> 信用卡</label>
+<label class="opt"><input type="radio" name="pay" value="cvs-code"> 超商代碼</label>
+<label class="opt"><input type="radio" name="pay" value="atm"> ATM 轉帳</label>
+<label class="opt"><input type="radio" name="pay" value="linepay"> LINE Pay</label>
+</div>
+<div id="cardbox">
+<label for="card">測試卡號</label><input type="text" id="card" inputmode="numeric" placeholder="4242 4242 4242 4242" autocomplete="off">
+<p class="note warn">請勿輸入真實卡號。系統只會保留末四碼，其餘立刻丟棄，正式上線時卡號應由金流商處理。</p>
+</div>
+<div id="atmbox" class="hide"><label for="last5">匯款帳號後五碼（模擬）</label><input type="text" id="last5" inputmode="numeric" maxlength="5" placeholder="12345"></div>
+<p class="err" id="e-pay"></p>
+</fieldset>
+<button type="submit" class="go">送出預購訂單</button>
+</form>
+
+<aside>
+<div class="receipt" aria-live="polite">
+<h2>訂單明細</h2>
+<div id="lines"></div>
+<div class="ln"><span>運費</span><span id="shipfee">NT$60</span></div>
+<div class="ln tot"><span>應付總額</span><span id="total">NT$0</span></div>
+</div>
+</aside>
+</div>
+
+<section id="result" class="hide" aria-live="polite">
+<div class="done">
+<h2>預購成立（模擬）</h2>
+<p>訂單編號 <b id="oid"></b>　<span class="badge" id="status"></span></p>
+<p id="deadline" class="note"></p>
+<p>以下是這筆訂單收集到的資料，可以截圖或複製到 Word 報告：</p>
+<pre id="json"></pre>
+<button class="sec" id="copy" type="button">複製資料</button> <span class="note" id="copied"></span>
+</div>
+</section>
+</div>
+
+<script>
+var ITEMS=[
+{id:"light",name:"應援手燈",price:880,limit:2,vers:["普通版","限定版（含收納袋）"]},
+{id:"stand",name:"壓克力立牌",price:420,limit:3,vers:["單人款","生日限定款"]},
+{id:"cards",name:"小卡組（一組 8 張）",price:350,limit:5,vers:["A 組","B 組"]}
+];
+var FEE={cvs:60,home:100};
+var PAYNAME={card:"信用卡","cvs-code":"超商代碼",atm:"ATM 轉帳",linepay:"LINE Pay"};
+var $=function(s){return document.querySelector(s)};
+var qty={},ver={};
+function nt(n){return "NT$"+n.toLocaleString("en-US")}
+function build(){
+ var h="";
+ ITEMS.forEach(function(it){
+  qty[it.id]=0;ver[it.id]=it.vers[0];
+  var q="<span class=\"step\" role=\"group\" aria-label=\""+it.name+" 數量\"><button type=\"button\" data-d=\"-1\" data-s=\""+it.id+"\" aria-label=\"減少\" disabled>−</button><output id=\"n-"+it.id+"\">0</output><button type=\"button\" data-d=\"1\" data-s=\""+it.id+"\" aria-label=\"增加\">+</button></span>";
+  var v=it.vers.map(function(x){return "<option>"+x+"</option>"}).join("");
+  h+="<div class=\"item\"><div><b>"+it.name+"</b><small>"+nt(it.price)+"　每人限購 "+it.limit+" 件</small></div>"+
+  "<div class=\"ctl\"><select aria-label=\""+it.name+" 版本\" data-v=\""+it.id+"\">"+v+"</select>"+
+  q+"</div></div>";
+ });
+ $("#items").innerHTML=h;
+}
+function calc(){
+ var sub=0,html="",any=false;
+ ITEMS.forEach(function(it){
+  var n=qty[it.id];if(n>0){any=true;sub+=n*it.price;
+   html+="<div class=\"ln\"><span>"+it.name+"（"+ver[it.id]+"）×"+n+"</span><span>"+nt(n*it.price)+"</span></div>"}
+ });
+ $("#lines").innerHTML=any?html:"<p class=\"note\">尚未選擇商品</p>";
+ if(any){var it0=$("#items");it0.classList.remove("bad");var nx=it0.nextElementSibling;if(nx&&nx.classList.contains("ferr"))nx.remove()}
+ var ship=document.querySelector("[name=ship]:checked").value;
+ var fee=any?FEE[ship]:0;
+ $("#shipfee").textContent=nt(fee);
+ $("#total").textContent=nt(sub+fee);
+ return {sub:sub,fee:fee,total:sub+fee,ship:ship};
+}
+function pad(n){return n<10?"0"+n:""+n}
+function fmt(d){return d.getFullYear()+"/"+pad(d.getMonth()+1)+"/"+pad(d.getDate())}
+document.addEventListener("change",function(e){
+ var t=e.target;
+ if(t.dataset&&t.dataset.q)qty[t.dataset.q]=+t.value;
+ if(t.dataset&&t.dataset.v)ver[t.dataset.v]=t.value;
+ if(t.name==="ship")$("#addrbox").classList.toggle("hide",t.value!=="home");
+ if(t.name==="pay"){$("#cardbox").classList.toggle("hide",t.value!=="card");$("#atmbox").classList.toggle("hide",t.value!=="atm")}
+ calc();
+});
+document.addEventListener("click",function(e){
+ var b=e.target.closest&&e.target.closest("[data-s]");if(!b)return;
+ var id=b.dataset.s,it=ITEMS.filter(function(i){return i.id===id})[0];
+ qty[id]=Math.max(0,Math.min(it.limit,qty[id]+(+b.dataset.d)));
+ $("#n-"+id).textContent=qty[id];
+ var bs=document.querySelectorAll("[data-s=\""+id+"\"]");
+ bs[0].disabled=qty[id]===0;bs[1].disabled=qty[id]===it.limit;
+ calc();
+});
+var firstBad=null;
+function clearErr(){document.querySelectorAll(".bad").forEach(function(x){x.classList.remove("bad");x.removeAttribute("aria-invalid")});document.querySelectorAll(".ferr").forEach(function(x){x.remove()});firstBad=null}
+function bad(el,msg){el.classList.add("bad");if(el.tagName==="INPUT")el.setAttribute("aria-invalid","true");var p=document.createElement("p");p.className="ferr";p.setAttribute("role","alert");p.textContent=msg;el.insertAdjacentElement("afterend",p);if(!firstBad)firstBad=el}
+document.addEventListener("input",function(e){var t=e.target;if(t.classList&&t.classList.contains("bad")){t.classList.remove("bad");t.removeAttribute("aria-invalid");var n=t.nextElementSibling;if(n&&n.classList.contains("ferr"))n.remove()}});
+$("#f").addEventListener("submit",function(e){
+ e.preventDefault();
+ clearErr();
+ var c=calc(),ok=true,pay=document.querySelector("[name=pay]:checked").value;
+ var name=$("#name").value.trim(),email=$("#email").value.trim(),phone=$("#phone").value.trim();
+ if(c.sub===0){bad($("#items"),"請至少選擇一件商品，按「+」加入數量。");ok=false}
+ if(!name){bad($("#name"),"請填寫姓名。");ok=false}
+ if(!/^\S+@\S+\.\S+$/.test(email)){bad($("#email"),"Email 格式不正確，例如 name@example.com。");ok=false}
+ if(!/^09\d{8}$/.test(phone)){bad($("#phone"),"手機需為 09 開頭的 10 碼數字，例如 0912345678。");ok=false}
+ if(c.ship==="home"&&!$("#addr").value.trim()){bad($("#addr"),"選擇宅配時，需要填寫收件地址。");ok=false}
+ var digits=$("#card").value.replace(/\D/g,""),last5=$("#last5").value.trim();
+ if(pay==="card"&&(digits.length<13||digits.length>19)){bad($("#card"),"測試卡號需為 13 至 19 位數字。");ok=false}
+ if(pay==="atm"&&!/^\d{5}$/.test(last5)){bad($("#last5"),"帳號後五碼需為 5 位數字。");ok=false}
+ if(!ok){var rm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;firstBad.scrollIntoView({behavior:rm?"auto":"smooth",block:"center"});firstBad.focus({preventScroll:true});return}
+ var now=new Date(),due=new Date(now.getTime()+3*864e5);
+ var oid="IDL"+now.getFullYear()+pad(now.getMonth()+1)+pad(now.getDate())+Math.floor(1000+Math.random()*9000);
+ var paid=pay==="card";
+ var data={
+  order:{order_id:oid,created_at:now.toISOString(),currency:"TWD",items:ITEMS.filter(function(i){return qty[i.id]>0}).map(function(i){return {name:i.name,version:ver[i.id],unit_price:i.price,qty:qty[i.id]}}),subtotal:c.sub,shipping_fee:c.fee,total:c.total},
+  buyer:{name:name,nickname:$("#nick").value.trim()||null,email:email,phone:phone},
+  delivery:{method:c.ship==="cvs"?"超商取貨":"宅配",address:c.ship==="home"?$("#addr").value.trim():null},
+  payment:{method:PAYNAME[pay],status:paid?"已付款（模擬）":"待付款",pay_deadline:paid?null:fmt(due),card_last4:pay==="card"?digits.slice(-4):null,atm_last5:pay==="atm"?last5:null}
+ };
+ $("#oid").textContent=oid;$("#status").textContent=data.payment.status;
+ $("#deadline").textContent=paid?"":"請於 "+fmt(due)+" 前完成付款，逾期訂單會自動取消、名額釋出。";
+ $("#json").textContent=JSON.stringify(data,null,2);
+ $("#card").value="";
+ $("#result").classList.remove("hide");
+ $("#result").scrollIntoView({behavior:"smooth"});
+});
+$("#copy").addEventListener("click",function(){
+ var t=$("#json").textContent;
+ try{navigator.clipboard.writeText(t).then(function(){$("#copied").textContent="已複製"},function(){$("#copied").textContent="複製失敗，請手動選取文字"})}
+ catch(x){$("#copied").textContent="複製失敗，請手動選取文字"}
+});
+build();calc();
+</script>
+</body>
+</html>
